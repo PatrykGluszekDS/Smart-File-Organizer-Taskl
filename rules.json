@@ -1,0 +1,8 @@
+{
+  ".psd": "Images",
+  ".csv": "Spreadsheets",
+  "no_extension": "Others",
+  "folders": {
+    "Images": ["thumbnails", "photos"]
+  }
+}
