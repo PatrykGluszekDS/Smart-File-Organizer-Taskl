@@ -1,12 +1,12 @@
 from pathlib import Path
 import json
-from typing import Dict, Tuple, List
+from typing import Dict, Tuple, List, Optional
 from .models import FileRecord
 from .default_rules import DEFAULT_EXTENSION_MAP, DEFAULT_OTHER_FOLDER
 
 class RuleSet:
     """Holds extension→folder mapping, loaded from defaults + optional JSON file."""
-    def __init__(self, user_rules_path: Path | None = None):
+    def __init__(self, user_rules_path: Optional[Path] = None):
         self.map: Dict[str, str] = dict(DEFAULT_EXTENSION_MAP)
         if user_rules_path:
             self._load_user_rules(user_rules_path)
