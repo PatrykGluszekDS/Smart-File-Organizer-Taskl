@@ -32,8 +32,13 @@ class SafeMover:
 
         # Real move
         dest_file.parent.mkdir(parents=True, exist_ok=True)
-        shutil.move(str(rec.path), str(dest_file))
-        return MoveResult(rec.path, dest_file, performed=True, reason=reason)
+        try:
+            shutil.move(str(rec.path), str(dest_file))
+        except PermissionError as e:
+            return MoveResult(rec.path, dest_file, performed=False, reason=f"perm-denied: {e}")
+        except OSError as e:
+            return MoveResult(rec.path, dest_file, performed=False, reason=f"os-error: {e}")
+
 
     def move_many(self, pairs: List[Tuple[FileRecord, str]]) -> List[MoveResult]:
         results: List[MoveResult] = []

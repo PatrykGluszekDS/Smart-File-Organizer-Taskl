@@ -20,4 +20,19 @@ Keep in mind that the code must be written in OOP.
 - Add error handling (conflicting names, permission issues).
 - Final testing. Create README with instructions and screenshots. Submit as Git repo.
 
-## Estimated time to work 2 weeks
+# AutoSorter
+
+Automatically sort files in a folder into subfolders based on file extension or custom rules.  
+Includes a **CLI**, a **Tkinter GUI**, **dry‑run mode**, **logging**, and **undo**.
+
+---
+
+## ✨ Features
+
+- Scan a folder (recursively) and classify files using defaults or your own `rules.json`.
+- Safe moves with collision handling (`file (1).txt`, etc.).
+- **Dry‑run** preview before touching anything.
+- Detailed CSV/JSON logging per batch, with a one‑click **undo**.
+- Polished GUI (progress bar, stop button, saved settings).
+- Works on Windows, macOS, Linux (Python 3.8+).
+
