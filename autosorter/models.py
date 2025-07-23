@@ -9,3 +9,10 @@ class FileRecord:
     ext: str
     size: int
     mtime: datetime
+
+@dataclass(frozen=True)
+class MoveResult:
+    src: Path
+    dst: Path
+    performed: bool  # False if dry-run
+    reason: str = ""  # e.g., "exists, renamed", "skipped same location"
