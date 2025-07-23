@@ -16,3 +16,11 @@ class MoveResult:
     dst: Path
     performed: bool  # False if dry-run
     reason: str = ""  # e.g., "exists, renamed", "skipped same location"
+
+
+@dataclass(frozen=True)
+class MoveLogEntry:
+    batch_id: str
+    src: Path
+    dst: Path
+    timestamp: datetime
